@@ -3,11 +3,11 @@ using UnityEngine;
 public class DoorButton : MonoBehaviour
 {
     [SerializeField] DoorWithButton door;
-    void OnCollisionEnter(Collision other)
+    void OnTriggerEnter(Collider other)
     {
         door.OpenDoor();
     }
-    void OnCollisionExit(Collision other)
+    void OnTriggerExit(Collider other)
     {
         door.CloseDoor();
     }
