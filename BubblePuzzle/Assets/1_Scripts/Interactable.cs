@@ -18,4 +18,24 @@ public class Interactable : MonoBehaviour, IInteractable
         StaticEventHandler.OnSelected -= InteractedWith;
 
     }
+
+    public void Vanish()
+    {
+        
+    }
+
+    public void Resize(float amount)
+    {
+        
+    }
+
+    public void Instance()
+    {
+        
+    }
+
+    public void GenerateHUDRendder()
+    {
+
+    }
 }
