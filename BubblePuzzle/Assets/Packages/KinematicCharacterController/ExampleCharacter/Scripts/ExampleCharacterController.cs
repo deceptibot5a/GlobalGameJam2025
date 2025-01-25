@@ -23,8 +23,6 @@ namespace KinematicCharacterController.Examples
         public float MoveAxisRight;
         public Quaternion CameraRotation;
         public bool JumpDown;
-        public bool CrouchDown;
-        public bool CrouchUp;
     }
 
     public struct AICharacterInputs
@@ -69,7 +67,6 @@ namespace KinematicCharacterController.Examples
         public Vector3 Gravity = new Vector3(0, -30f, 0);
         public Transform MeshRoot;
         public Transform CameraFollowPoint;
-        public float CrouchedCapsuleHeight = 1f;
 
         public CharacterState CurrentCharacterState { get; private set; }
 
@@ -83,8 +80,7 @@ namespace KinematicCharacterController.Examples
         private float _timeSinceJumpRequested = Mathf.Infinity;
         private float _timeSinceLastAbleToJump = 0f;
         private Vector3 _internalVelocityAdd = Vector3.zero;
-        private bool _shouldBeCrouching = false;
-        private bool _isCrouching = false;
+
 
         private Vector3 lastInnerNormal = Vector3.zero;
         private Vector3 lastOuterNormal = Vector3.zero;
@@ -177,23 +173,7 @@ namespace KinematicCharacterController.Examples
                             _jumpRequested = true;
                         }
 
-                        // Crouching input
-                        if (inputs.CrouchDown)
-                        {
-                            _shouldBeCrouching = true;
-
-                            if (!_isCrouching)
-                            {
-                                _isCrouching = true;
-                                Motor.SetCapsuleDimensions(0.5f, CrouchedCapsuleHeight, CrouchedCapsuleHeight * 0.5f);
-                                MeshRoot.localScale = new Vector3(1f, 0.5f, 1f);
-                            }
-                        }
-                        else if (inputs.CrouchUp)
-                        {
-                            _shouldBeCrouching = false;
-                        }
-
+                        
                         break;
                     }
             }
@@ -422,30 +402,8 @@ namespace KinematicCharacterController.Examples
                             }
                         }
 
-                        // Handle uncrouching
-                        if (_isCrouching && !_shouldBeCrouching)
-                        {
-                            // Do an overlap test with the character's standing height to see if there are any obstructions
-                            Motor.SetCapsuleDimensions(0.5f, 2f, 1f);
-                            if (Motor.CharacterOverlap(
-                                Motor.TransientPosition,
-                                Motor.TransientRotation,
-                                _probedColliders,
-                                Motor.CollidableLayers,
-                                QueryTriggerInteraction.Ignore) > 0)
-                            {
-                                // If obstructions, just stick to crouching dimensions
-                                Motor.SetCapsuleDimensions(0.5f, CrouchedCapsuleHeight, CrouchedCapsuleHeight * 0.5f);
-                            }
-                            else
-                            {
-                                // If no obstructions, uncrouch
-                                MeshRoot.localScale = new Vector3(1f, 1f, 1f);
-                                _isCrouching = false;
-                            }
-                        }
-                        break;
                     }
+                    break;
             }
         }
 
