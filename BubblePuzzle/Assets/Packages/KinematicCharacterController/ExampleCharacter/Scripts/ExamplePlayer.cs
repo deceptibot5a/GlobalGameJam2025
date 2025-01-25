@@ -27,6 +27,7 @@ namespace KinematicCharacterController.Examples
             // Ignore the character's collider(s) for camera obstruction checks
             CharacterCamera.IgnoredColliders.Clear();
             CharacterCamera.IgnoredColliders.AddRange(Character.GetComponentsInChildren<Collider>());
+            CharacterCamera.TargetDistance = 0f;
         }
 
         private void Update()
@@ -73,11 +74,7 @@ namespace KinematicCharacterController.Examples
             // Apply inputs to the camera
             CharacterCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
 
-            // Handle toggling zoom level
-            if (Input.GetMouseButtonDown(1))
-            {
-                CharacterCamera.TargetDistance = (CharacterCamera.TargetDistance == 0f) ? CharacterCamera.DefaultDistance : 0f;
-            }
+            
         }
 
         private void HandleCharacterInput()
@@ -89,8 +86,6 @@ namespace KinematicCharacterController.Examples
             characterInputs.MoveAxisRight = Input.GetAxisRaw(HorizontalInput);
             characterInputs.CameraRotation = CharacterCamera.Transform.rotation;
             characterInputs.JumpDown = Input.GetKeyDown(KeyCode.Space);
-            characterInputs.CrouchDown = Input.GetKeyDown(KeyCode.C);
-            characterInputs.CrouchUp = Input.GetKeyUp(KeyCode.C);
 
             // Apply inputs to character
             Character.SetInputs(ref characterInputs);
