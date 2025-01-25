@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class MeshDestroy : MonoBehaviour
 {
+    [SerializeField] GameObject _trash;
     private bool edgeSet = false;
     private Vector3 edgeVertex = Vector3.zero;
     private Vector2 edgeUV = Vector2.zero;
@@ -67,7 +68,7 @@ public class MeshDestroy : MonoBehaviour
 
         for (var i = 0; i < parts.Count; i++)
         {
-            parts[i].MakeGameobject(this);
+            parts[i].MakeGameobject(this, _trash);
             parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
         }
 
@@ -263,9 +264,10 @@ public class MeshDestroy : MonoBehaviour
                 Triangles[i] = _Triangles[i].ToArray();
         }
 
-        public void MakeGameobject(MeshDestroy original)
+        public void MakeGameobject(MeshDestroy original, GameObject trash)
         {
             GameObject = new GameObject(original.name);
+            GameObject.transform.parent = trash.transform;
             GameObject.transform.position = original.transform.position;
             GameObject.transform.rotation = original.transform.rotation;
             GameObject.transform.localScale = original.transform.localScale;
