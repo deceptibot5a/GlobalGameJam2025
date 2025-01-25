@@ -11,18 +11,18 @@ public class MeshDestroy : MonoBehaviour
     private Vector2 edgeUV = Vector2.zero;
     private Plane edgePlane = new Plane();
     [SerializeField] bool OnlyOnce;
+    [SerializeField] GameObject BoomEffect;
 
     public int CutCascades = 1;
     private const int MaxCascades = 5; // Limit cascades to a reasonable value
 
     public float ExplodeForce = 0;
-
-    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0) & OnlyOnce)
         {
             DestroyMesh();
+            BoomEffect.SetActive(true);
             OnlyOnce = false;
         }
     }
