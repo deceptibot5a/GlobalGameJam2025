@@ -12,6 +12,8 @@ public class MeshDestroy : MonoBehaviour
     private Plane edgePlane = new Plane();
     [SerializeField] bool OnlyOnce;
     [SerializeField] GameObject BoomEffect;
+    [SerializeField] AudioSource OpenDoorSound;
+    
 
     public int CutCascades = 1;
     private const int MaxCascades = 5; // Limit cascades to a reasonable value
@@ -23,6 +25,7 @@ public class MeshDestroy : MonoBehaviour
         {
             DestroyMesh();
             BoomEffect.SetActive(true);
+            OpenDoorSound.PlayOneShot(OpenDoorSound.clip);
             OnlyOnce = false;
         }
     }
