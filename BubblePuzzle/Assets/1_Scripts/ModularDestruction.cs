@@ -12,6 +12,7 @@ public class MeshDestroy : MonoBehaviour
     private Plane edgePlane = new Plane();
     [SerializeField] bool OnlyOnce;
     [SerializeField] GameObject BoomEffect;
+    
 
     public int CutCascades = 1;
     private const int MaxCascades = 5; // Limit cascades to a reasonable value

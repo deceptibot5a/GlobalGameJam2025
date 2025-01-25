@@ -1,13 +1,36 @@
 using UnityEngine;
+using System.Collections;
 
 public class VictoryZone : MonoBehaviour
 {
+    
+    [SerializeField] GameObject Fireworks;
+    [SerializeField] GameObject Pouff;
     
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Player")
         {
-            Debug.Log("Victory");
+            Fireworks.SetActive(true);
+            Pouff.SetActive(true);
+            StartCoroutine(WaitAndExecute());
         }
     }
+    
+    IEnumerator WaitAndExecute()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
+
+        // Execute your desired action
+        ExecuteAction();
+    }
+    
+    void ExecuteAction()
+    {
+        Debug.Log("You win, WARP");
+        // Add your custom logic here
+    }
 }
+
+
