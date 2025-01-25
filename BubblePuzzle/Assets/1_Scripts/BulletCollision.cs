@@ -4,9 +4,11 @@ public class BulletCollision : MonoBehaviour
 {
     private void OnTriggerEnter(UnityEngine.Collider other)
     {
-        StaticEventHandler.OnSelected += Notify;
-        StaticEventHandler.NotifySelected(other.gameObject);
-        StaticEventHandler.OnSelected -= Notify;
+        IInteractable interactable = other.GetComponent<IInteractable>();
+        if (interactable != null)
+        {
+            interactable.InteractedWith();   
+        }
     }
 
     void Notify( )
