@@ -11,6 +11,7 @@ public class BulletCollision : MonoBehaviour
         }
     }
 
+
     void Notify( )
     {
         print(StaticEventHandler.savedInteractable);
