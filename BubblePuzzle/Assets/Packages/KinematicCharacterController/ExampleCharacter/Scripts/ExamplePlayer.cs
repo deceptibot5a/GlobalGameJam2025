@@ -13,7 +13,6 @@ namespace KinematicCharacterController.Examples
 
         private const string MouseXInput = "Mouse X";
         private const string MouseYInput = "Mouse Y";
-        private const string MouseScrollInput = "Mouse ScrollWheel";
         private const string HorizontalInput = "Horizontal";
         private const string VerticalInput = "Vertical";
 
@@ -66,13 +65,12 @@ namespace KinematicCharacterController.Examples
             }
 
             // Input for zooming the camera (disabled in WebGL because it can cause problems)
-            float scrollInput = -Input.GetAxis(MouseScrollInput);
 #if UNITY_WEBGL
         scrollInput = 0f;
 #endif
 
             // Apply inputs to the camera
-            CharacterCamera.UpdateWithInput(Time.deltaTime, scrollInput, lookInputVector);
+            CharacterCamera.UpdateWithInput(Time.deltaTime, lookInputVector);
 
             
         }
