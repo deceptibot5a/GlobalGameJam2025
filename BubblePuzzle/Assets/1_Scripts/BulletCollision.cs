@@ -9,6 +9,8 @@ public class BulletCollision : MonoBehaviour
         {
             interactable.InteractedWith();   
         }
+
+        Destroy(this.gameObject);
     }
 
 
