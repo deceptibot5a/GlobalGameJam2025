@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: 7477943068603435945}
   m_Layer: 0
   m_Name: ---PLAYERPREFAB---
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -445,9 +445,49 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7477943068603435945}
     m_Modifications:
+    - target: {fileID: 43330285, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 43330285, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072008595159340, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1072008595159340, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339159333115884, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1339159333115884, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1398904762131290, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
       propertyPath: m_Name
       value: ExampleCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398904762131290, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1398904762131290, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1758411822872852, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1854746833484672, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
+      propertyPath: m_Layer
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4898694727102280, guid: d295472d4ce25404e9aed2627c34801f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -594,15 +634,83 @@ PrefabInstance:
       propertyPath: m_ConstrainProportionsScale
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: -8337688076517464271, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -7530099314806426373, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -3150803701154512945, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 27f5fd053a940004a9d42f48ab6c4976, type: 2}
+    - target: {fileID: 735862989784198932, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 801754290103193122, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
       propertyPath: m_Name
       value: handfix2
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 2136270697104608136, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 4240099873136914657, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5127981605044625628, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5640450870171146020, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 7252226406470976554, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: fcb41ca4d490e28499e89f1ea4fc6f5b, type: 2}
+    - target: {fileID: 8471903621829089894, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 5640450870171146020, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6416114942824177837}
   m_SourcePrefab: {fileID: 100100000, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+--- !u!1 &3863475247412354016 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5640450870171146020, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
+  m_PrefabInstance: {fileID: 8924791313524526276}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6416114942824177837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3863475247412354016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d66c310968bb98b4fac422957615fa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &8958085270765464367 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 25016645d608e3644bc95776acc7bcb0, type: 3}
