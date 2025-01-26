@@ -13,9 +13,9 @@ namespace KinematicCharacterController.Examples
         public float FollowingSharpness = 10000f;
 
         [Header("Distance")]
-        public float DefaultDistance = 6f;
+        public float DefaultDistance = 0f;
         public float MinDistance = 0f;
-        public float MaxDistance = 10f;
+        public float MaxDistance = 0f;
         public float DistanceMovementSpeed = 5f;
         public float DistanceMovementSharpness = 10f;
 
@@ -57,7 +57,7 @@ namespace KinematicCharacterController.Examples
 
         void OnValidate()
         {
-            DefaultDistance = Mathf.Clamp(DefaultDistance, MinDistance, MaxDistance);
+            DefaultDistance = 0f;
             DefaultVerticalAngle = Mathf.Clamp(DefaultVerticalAngle, MinVerticalAngle, MaxVerticalAngle);
         }
 
@@ -81,7 +81,7 @@ namespace KinematicCharacterController.Examples
             _currentFollowPosition = FollowTransform.position;
         }
 
-        public void UpdateWithInput(float deltaTime, float zoomInput, Vector3 rotationInput)
+        public void UpdateWithInput(float deltaTime, Vector3 rotationInput)
         {
             if (FollowTransform)
             {
@@ -107,14 +107,6 @@ namespace KinematicCharacterController.Examples
 
                 // Apply rotation
                 Transform.rotation = targetRotation;
-
-                // Process distance input
-                if (_distanceIsObstructed && Mathf.Abs(zoomInput) > 0f)
-                {
-                    TargetDistance = _currentDistance;
-                }
-                TargetDistance += zoomInput * DistanceMovementSpeed;
-                TargetDistance = Mathf.Clamp(TargetDistance, MinDistance, MaxDistance);
 
                 // Find the smoothed follow position
                 _currentFollowPosition = Vector3.Lerp(_currentFollowPosition, FollowTransform.position, 1f - Mathf.Exp(-FollowingSharpness * deltaTime));
