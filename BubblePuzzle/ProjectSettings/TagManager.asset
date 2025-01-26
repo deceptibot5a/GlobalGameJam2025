@@ -11,6 +11,9 @@ TagManager:
   - BoxD
   - FxTemporaire
   - BoxE
+  - BoxF
+  - BoxG
+  - BoxH
   layers:
   - Default
   - TransparentFX
@@ -18,7 +21,7 @@ TagManager:
   - Player
   - Water
   - UI
-  - 
+  - MovableBlock
   - 
   - 
   - 
