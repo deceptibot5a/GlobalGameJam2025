@@ -1,5 +1,9 @@
 using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
+using KinematicCharacterController.Examples;
+using Unity.VisualScripting;
+using UnityEngine.UIElements;
 
 public class VictoryZone : MonoBehaviour
 {
@@ -7,6 +11,8 @@ public class VictoryZone : MonoBehaviour
     [SerializeField] GameObject Fireworks;
     [SerializeField] GameObject Pouff;
     [SerializeField] AudioSource Victory;
+    [SerializeField] private GameObject Player;
+
     
     void OnTriggerEnter(Collider other)
     {
@@ -31,8 +37,7 @@ public class VictoryZone : MonoBehaviour
     
     void ExecuteAction()
     {
-        Debug.Log("You win, WARP");
-        // Add your custom logic here
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
 

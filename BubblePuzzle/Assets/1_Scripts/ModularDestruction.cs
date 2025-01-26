@@ -67,9 +67,8 @@ public class MeshDestroy : MonoBehaviour
 
         BoomEffect.SetActive(true);
         OpenDoorSound.PlayOneShot(OpenDoorSound.clip);
+        StartCoroutine(HideTrash());
         OnlyOnce = false;
-
-        Destroy(gameObject);
     }
 
     private PartMesh GenerateMesh(PartMesh original, Plane plane, bool left)
@@ -295,5 +294,13 @@ public class MeshDestroy : MonoBehaviour
 
         }
 
+    }
+
+    IEnumerator HideTrash()
+    {
+        // Wait for 5 seconds
+        yield return new WaitForSeconds(5f);
+        _trash.SetActive(false);
+        Destroy(this.gameObject);
     }
 }

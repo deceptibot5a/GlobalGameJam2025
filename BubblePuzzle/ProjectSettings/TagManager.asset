@@ -9,6 +9,8 @@ TagManager:
   - BoxB
   - BoxC
   - BoxD
+  - FxTemporaire
+  - BoxE
   layers:
   - Default
   - TransparentFX
