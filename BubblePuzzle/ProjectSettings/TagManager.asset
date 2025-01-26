@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 3
   tags:
   - bOX
+  - BoxA
+  - BoxB
+  - BoxC
+  - BoxD
   layers:
   - Default
   - TransparentFX

@@ -9,7 +9,7 @@ public class Interactable : MonoBehaviour, IInteractable
     {
         StaticEventHandler.savedInteractable = this.gameObject;
         print(this.gameObject);
-        Resize(0.5f);
+        Vanish();
     }
 
     private void OnEnable()
@@ -35,6 +35,7 @@ public class Interactable : MonoBehaviour, IInteractable
         
         foreach (GameObject obj in FindAllObjectsWithTag())
         {
+            //PartSis
             Destroy(obj);
         }
     }
