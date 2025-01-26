@@ -96,7 +96,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _AddPrecomputedVelocity: 0
-    - _Add_Alpha: 0.37
+    - _Add_Alpha: -0.08
     - _AlphaClip: 0
     - _AlphaToMask: 0
     - _Blend: 0
@@ -108,11 +108,11 @@ Material:
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
-    - _Divide_Color: 15.2
+    - _Divide_Color: 1
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _Fresnet_Power: 14.4
+    - _Fresnet_Power: 0.53
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -130,8 +130,9 @@ Material:
     - _Surface: 0
     - _WorkflowMode: 1
     - _ZWrite: 1
-    - _blend_Sharpness: 3.58
-    - _noice_Subtractor: 5.3
+    - _blend_Opacity: 1.46
+    - _blend_Sharpness: 0.57
+    - _noice_Subtractor: 0.15
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
