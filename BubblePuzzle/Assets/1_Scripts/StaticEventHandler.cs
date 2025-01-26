@@ -7,6 +7,8 @@ public class StaticEventHandler : MonoBehaviour
 {
     public static event Action OnBulletHitWithInteractableObject;
     public static event Action OnSelected;
+    public static event Action OnGivenAmmo;
+    public static event Action OnUseAmmo;
     public static GameObject savedInteractable;
 
     public static void NotifyInteractedWith()
@@ -21,4 +23,13 @@ public class StaticEventHandler : MonoBehaviour
         return savedInteractable;
     }
 
+    public static void GiveAmmonition()
+    {
+        OnGivenAmmo?.Invoke();
+    }
+
+    public static void UseAmmonition()
+    {
+        OnUseAmmo?.Invoke();
+    }
 }

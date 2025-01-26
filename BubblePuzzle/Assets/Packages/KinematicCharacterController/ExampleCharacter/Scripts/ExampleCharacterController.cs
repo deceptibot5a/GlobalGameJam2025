@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using KinematicCharacterController;
 using System;
+using UnityEngine.SceneManagement;
 
 namespace KinematicCharacterController.Examples
 {
@@ -23,6 +24,7 @@ namespace KinematicCharacterController.Examples
         public float MoveAxisRight;
         public Quaternion CameraRotation;
         public bool JumpDown;
+        public bool Restart;
     }
 
     public struct AICharacterInputs
@@ -171,6 +173,11 @@ namespace KinematicCharacterController.Examples
                         {
                             _timeSinceJumpRequested = 0f;
                             _jumpRequested = true;
+                        }
+
+                        if (inputs.Restart)
+                        {
+                            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                         }
 
                         
