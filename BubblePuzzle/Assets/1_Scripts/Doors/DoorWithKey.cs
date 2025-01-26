@@ -3,25 +3,20 @@ using UnityEngine;
 public class DoorWithKey : MonoBehaviour
 {
     public bool isLocked = true;
+    MeshDestroy meshDestroy; 
 
+    private void Start()
+    {
+        meshDestroy = GetComponent<MeshDestroy>();
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player"))
         {
-            if (isLocked)
+            if (isLocked == false)
             {
-                Debug.Log("No puedes pasar");
-            }
-            else
-            {
-                OpenDoor();
+                meshDestroy.DestroyMesh();
             }
         }
-    }
-
-    void OpenDoor()
-    {
-        Debug.Log("Puerta abierta");
-        this.gameObject.SetActive(false);
     }
 }

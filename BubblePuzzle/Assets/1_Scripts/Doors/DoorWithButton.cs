@@ -2,15 +2,21 @@ using UnityEngine;
 
 public class DoorWithButton : MonoBehaviour
 {
+    [SerializeField] int requiredButtons;
+    public int activeButtons;
     public void OpenDoor()
-    {
-        Debug.Log("Puerta abierta");
-        this.gameObject.SetActive(false);
+    {   if(activeButtons == requiredButtons)
+        {
+            this.gameObject.SetActive(false);
+        }
     }
 
     public void CloseDoor()
     {
-        Debug.Log("Puerta cerrada");
-        this.gameObject.SetActive(true);
+        if(activeButtons != requiredButtons)
+        {
+            this.gameObject.SetActive(true);
+        }
+        
     }
 }

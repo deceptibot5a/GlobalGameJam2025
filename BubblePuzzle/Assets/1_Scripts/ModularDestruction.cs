@@ -19,18 +19,8 @@ public class MeshDestroy : MonoBehaviour
     private const int MaxCascades = 5; // Limit cascades to a reasonable value
 
     public float ExplodeForce = 0;
-    void Update()
-    {
-        if (Input.GetMouseButtonDown(0) & OnlyOnce)
-        {
-            DestroyMesh();
-            BoomEffect.SetActive(true);
-            OpenDoorSound.PlayOneShot(OpenDoorSound.clip);
-            OnlyOnce = false;
-        }
-    }
 
-    private void DestroyMesh()
+    public void DestroyMesh()
     {
         var originalMesh = GetComponent<MeshFilter>().mesh;
         originalMesh.RecalculateBounds();
@@ -74,6 +64,10 @@ public class MeshDestroy : MonoBehaviour
             parts[i].MakeGameobject(this, _trash);
             parts[i].GameObject.GetComponent<Rigidbody>().AddForceAtPosition(parts[i].Bounds.center * ExplodeForce, transform.position);
         }
+
+        BoomEffect.SetActive(true);
+        OpenDoorSound.PlayOneShot(OpenDoorSound.clip);
+        OnlyOnce = false;
 
         Destroy(gameObject);
     }
