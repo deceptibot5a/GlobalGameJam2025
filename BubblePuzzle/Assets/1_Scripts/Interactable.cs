@@ -1,10 +1,12 @@
 using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
+using System.Collections;
 
 public class Interactable : MonoBehaviour, IInteractable
 {
     string thisTag;
+    [SerializeField] ExplosionEffect boomFX;
     public void InteractedWith()
     {
         StaticEventHandler.savedInteractable = this.gameObject;
@@ -29,17 +31,23 @@ public class Interactable : MonoBehaviour, IInteractable
         
     }
 
-
     public void Vanish()
     {
-        
         foreach (GameObject obj in FindAllObjectsWithTag())
         {
-            //PartSis
-            Destroy(obj);
+            boomFX.ActivateExplosion();
+            //obj.GetComponentInChildren<GameObject>().SetActive(true);
+
+            StartCoroutine(Dissapear(obj));
         }
     }
+    
+    IEnumerator Dissapear(GameObject item)
+    {
+        yield return new WaitForSeconds(3.0f);
 
+        Destroy(item);
+    }
 
     public void Resize(float amount)
     {
