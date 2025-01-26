@@ -8,13 +8,11 @@ public class KeyPickup : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GetKey();
-            Debug.Log("Puerta desbloqueada");
         }
     }
 
     void GetKey()
     {
-        Debug.Log("Llave tomada");
         door.isLocked = false;
 
         this.gameObject.SetActive(false);
