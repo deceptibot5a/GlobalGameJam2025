@@ -69,6 +69,11 @@ public class MeshDestroy : MonoBehaviour
         OpenDoorSound.PlayOneShot(OpenDoorSound.clip);
         StartCoroutine(HideTrash());
         OnlyOnce = false;
+        
+        this.GetComponent<MeshRenderer>().enabled = false;
+        this.GetComponent<BoxCollider>().enabled = false;
+        
+        
     }
 
     private PartMesh GenerateMesh(PartMesh original, Plane plane, bool left)
@@ -299,7 +304,7 @@ public class MeshDestroy : MonoBehaviour
     IEnumerator HideTrash()
     {
         // Wait for 5 seconds
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(4f);
         _trash.SetActive(false);
         Destroy(this.gameObject);
     }
