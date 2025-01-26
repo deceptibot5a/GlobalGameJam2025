@@ -9,14 +9,21 @@ public class ResetItemsSystem : MonoBehaviour
     // Tracks the number of attempts
     private int attempts = 0;
 
-    // The correct trigger sequence
-    public List<string> correctSequence;
+    // The correct trigger sequence (represented as integers)
+    public List<int> correctSequence;
 
     // Tracks the player's trigger sequence
-    private List<string> playerSequence = new List<string>();
+    private List<int> playerSequence = new List<int>();
 
     // Reference to the items to be reset
     public List<GameObject> items;
+
+    // Reference to the tiles that count as AddAttempt
+    public List<GameObject> addAttemptTiles;
+
+    // Reference to the tiles that count as SequenceTrigger and their IDs
+    public List<GameObject> sequenceTriggerTiles;
+    public List<int> sequenceTriggerIDs;
 
     private void Start()
     {
@@ -25,22 +32,27 @@ public class ResetItemsSystem : MonoBehaviour
         {
             originalPositions[item] = item.transform.position;
         }
+
+        // Ensure sequenceTriggerTiles and sequenceTriggerIDs are of the same size
+        if (sequenceTriggerTiles.Count != sequenceTriggerIDs.Count)
+        {
+            Debug.LogError("SequenceTriggerTiles and SequenceTriggerIDs lists must have the same number of elements.");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Add an attempt if the player enters a trigger with the "AddAttempt" tag
-        if (this.CompareTag("AddAttempt") & other.CompareTag("Player"))
+        // Check if the object is in the AddAttempt tiles list
+        if (addAttemptTiles.Contains(other.gameObject))
         {
             AddAttempt();
         }
 
-        // Check if the player is entering a sequence trigger
-        if (this.CompareTag("SequenceTrigger")& other.CompareTag("Player"))
+        // Check if the object is in the SequenceTrigger tiles list
+        int index = sequenceTriggerTiles.IndexOf(other.gameObject);
+        if (index != -1)
         {
-            string triggerID = other.gameObject.name; // Use the name as the ID
-            ProcessTrigger(triggerID);
-            //AddAttempt();
+            ProcessTrigger(sequenceTriggerIDs[index]);
         }
     }
 
@@ -53,12 +65,11 @@ public class ResetItemsSystem : MonoBehaviour
         if (attempts == 4)
         {
             ResetItems();
-            playerSequence.Clear();
             attempts = 0; // Reset attempts after resetting items
         }
     }
 
-    private void ProcessTrigger(string triggerID)
+    private void ProcessTrigger(int triggerID)
     {
         // Add the trigger to the player's sequence
         playerSequence.Add(triggerID);
