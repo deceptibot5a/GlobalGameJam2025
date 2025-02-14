@@ -38,6 +38,11 @@ public class VictoryZone : MonoBehaviour
     void ExecuteAction()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+        if(SceneManager.GetActiveScene().buildIndex + 1 == 3)
+        {
+            UnityEngine.Cursor.lockState = CursorLockMode.None;
+            UnityEngine.Cursor.visible = true;
+        }
     }
 }
 

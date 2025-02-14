@@ -6,6 +6,7 @@ public class Shoot : MonoBehaviour
 {
 
     [SerializeField] private float cooldownTime;
+    [SerializeField] Animator animator;
     private float _nextFireTime;
 
     bool hasAmmo;
@@ -20,6 +21,8 @@ public class Shoot : MonoBehaviour
     {
         StaticEventHandler.UseAmmonition();
         if (CoolingDown) return;
+
+        animator.SetTrigger("ShootAnim");
         var projectile = Instantiate(bubble, transform.position, transform.rotation);
 
         projectile.linearVelocity = transform.forward * bola;
@@ -49,15 +52,16 @@ public class Shoot : MonoBehaviour
         hasAmmo = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
-         if (Input.GetMouseButtonDown(0)&& hasAmmo)
-            {
+        if (Input.GetMouseButtonDown(0)&& hasAmmo)
+        {
             disparo();
-            }
-        
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            animator.SetTrigger("BreakAnim");
+        }
     }
 
 
